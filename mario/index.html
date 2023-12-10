@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Super Mario - Cookie Clicker</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./app.js" defer></script>
+
+    <link rel="shortcut icon" href="./images/Coin.gif" type="images/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amita&family=Architects+Daughter&family=Caveat&family=Libre+Baskerville&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Best song ever on loop - no display-->
+    <!-- <audio id="myAudio" autoplay loop controls style="display: none">
+      <source src="./audio/01. Ground Theme.mp3" type="audio/mp3" />
+    </audio> -->
+    <!-- Top bar with stats and archievements -->
+    <div class="sky">
+      <div class="scorebar">
+        <style>
+          .lives-title {
+            position: absolute;
+          }
+          .coins-title {
+            position: absolute;
+            left: 30%;
+          }
+          .coinImg {
+            position: absolute;
+            top: 63px;
+            left: 29%;
+          }
+          .world-title {
+            position: absolute;
+            left: 55%;
+          }
+          .time-title {
+            position: absolute;
+            left: 85%;
+          }
+          .live {
+            position: absolute;
+            top: 90px;
+          }
+          .counter {
+            position: absolute;
+            top: 80px;
+            left: 30%;
+          }
+          .world {
+            position: absolute;
+            top: 90px;
+            left: 55.7%;
+          }
+          .time {
+            position: absolute;
+            top: 90px;
+            left: 85.5%;
+          }
+          .multi-luigi {
+            position: absolute;
+            top: 570px;
+            left: 70.5%;
+            z-index: 1;
+            text-shadow: 0px 2px 0px #000000;
+          }
+          .luigiText {
+            position: absolute;
+            top: 570px;
+            left: 73.5%;
+            z-index: 1;
+            text-shadow: 0px 2px 0px #000000;
+          }
+          .luigiTextUpgrade {
+            position: absolute;
+            top: 590px;
+            left: 73.5%;
+            z-index: 1;
+            text-shadow: 0px 2px 0px #000000;
+          }
+          .luigiDisplayCost {
+            position: absolute;
+            top: 590px;
+            left: 83.5%;
+            z-index: 1;
+            text-shadow: 0px 2px 0px #000000;
+          }
+          .luigi {
+            position: absolute;
+            top: 600px;
+            left: 76%;
+            z-index: 1;
+            text-shadow: 0px 2px 0px #000000;
+          }
+
+          .multi-toad {
+            position: absolute;
+            top: 680px;
+            left: 70.5%;
+            z-index: 1;
+            text-shadow: 0px 2px 0px #000000;
+          }
+          .toadText {
+            position: absolute;
+            top: 680px;
+            left: 73.5%;
+            z-index: 1;
+            text-shadow: 0px 2px 0px #000000;
+          }
+          .toadTextUpgrade {
+            position: absolute;
+            top: 700px;
+            left: 73.5%;
+            z-index: 1;
+            text-shadow: 0px 2px 0px #000000;
+          }
+          .toadDisplayCost {
+            position: absolute;
+            top: 700px;
+            left: 83.5%;
+            z-index: 1;
+            text-shadow: 0px 2px 0px #000000;
+          }
+          .toad {
+            position: absolute;
+            top: 710px;
+            left: 76%;
+            z-index: 1;
+            text-shadow: 0px 2px 0px #000000;
+          }
+
+          .reset {
+            position: absolute;
+            top: 720px;
+            left: 82%;
+            z-index: 1;
+            text-shadow: 0px 2px 0px #000000;
+          }
+        </style>
+
+        <p>
+          <span class="lives-title">LIVES</span>
+          <span class="coins-title">COINS</span>
+          <span class="world-title">WORLD</span>
+          <span class="time-title">TIME</span>
+          <span class="live">2</span>
+          <span class="counter">O</span>
+          <span class="world">1 - 1</span>
+          <span class="time">0:00</span>
+
+          <!-- Board Text START-->
+          <span class="multi-luigi" style="font-size: 20px">0</span>
+          <span class="luigiText" style="font-size: 13px">Luigi +1 coin</span>
+          <span class="luigiTextUpgrade" style="font-size: 13px"
+            >Upgrade Cost:</span
+          >
+          <span class="luigiDisplayCost" style="font-size: 20px">10</span>
+          <button class="luigi">Hire</button>
+
+          <span class="multi-toad" style="font-size: 20px">0</span>
+          <span class="toadText" style="font-size: 13px">Toad +1 coin p/s</span>
+          <span class="toadTextUpgrade" style="font-size: 13px"
+            >Upgrade Cost:</span
+          >
+          <span class="toadDisplayCost" style="font-size: 20px">20</span>
+          <button class="toad">Hire</button>
+
+          <button class="reset" style="font-size: 6; width: 85px; height: 40px">
+            Reset
+          </button>
+        </p>
+      </div>
+      <!-- Could layer, bricks and ground -->
+      <img class="cloud" src="./images/CloudSingle.gif" />
+      <img class="cloud" src="./images/CloudSingle.gif" />
+      <img class="cloud" src="./images/CloudDouble.gif" />
+      <img class="coinImg" src="./images/Coin.gif" height="40px" />
+    </div>
+    <div class="ground">
+      <div class="skyblocks">
+        <img class="brick" src="./images/Bricks.gif" height="70px;" />
+        <img class="brick" src="./images/QuestionBlock.gif" height="70px;" />
+        <img
+          class="coin"
+          src="./images/Coin.gif"
+          id="coinAnimation"
+          height="40px;"
+        />
+        <img class="brick" src="./images/Bricks.gif" height="70px;" />
+        <img class="brick" src="./images/Bricks.gif" height="70px;" />
+      </div>
+      <img class="bush" src="./images/BushSingle.gif" height="70px;" />
+      <img class="bush" src="./images/BushDouble.gif" height="70px;" />
+      <img class="bush" src="./images/BushSingle.gif" height="70px;" />
+
+      <img class="board" src="./images/Board.png" height="140px;" />
+      <img class="boardStick" src="./images/Board.png" height="140px;" />
+      <img class="mario" src="./images/MarioStanding.png" height="70px;" />
+
+      <!-- <img class="mariojump" src="./images/MarioJump.png" height="70px;" /> -->
+    </div>
+  </body>
+</html>

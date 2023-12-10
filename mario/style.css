@@ -1,0 +1,198 @@
+html,
+body {
+  font-family: "Press Start 2P", cursive;
+  font-size: 30px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /*preventing unwanted horizontal scrolling and extra whitespace */
+  margin: 0;
+  padding: 0;
+}
+
+.sky,
+.ground {
+  position: relative; /*Because we want to position items on and in them!*/
+}
+
+.sky {
+  height: 90%;
+  background-color: #548cff;
+}
+
+.ground {
+  height: 10%;
+  background-color: #c84c0c;
+  background-image: url(./images/groundblock.png);
+}
+
+.scorebar {
+  position: absolute;
+  height: 120px;
+  width: 100%;
+  font-family: "Press Start 2P", cursive;
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+  line-height: 0.2;
+}
+
+.cloud {
+  position: fixed;
+  height: 100px;
+  top: 30%;
+  left: 66%;
+}
+
+.cloud:nth-child(2) {
+  top: 120px;
+  -webkit-animation: wind 80s both infinite linear reverse;
+  animation: wind 80s both infinite linear reverse;
+}
+.cloud:nth-child(3) {
+  top: 280px;
+  -webkit-animation: wind 50s both infinite linear reverse;
+  animation: wind 50s both infinite linear reverse;
+}
+.cloud:nth-child(4) {
+  top: 450px;
+  -webkit-animation: wind 30s both infinite linear reverse;
+  animation: wind 30s both infinite linear reverse;
+}
+
+.skyblocks {
+  position: absolute;
+  top: -250px;
+}
+/* 4 foating bricks position */
+
+.brick {
+  position: fixed;
+  margin: -2px;
+}
+.brick:nth-child(1) {
+  left: 600px;
+}
+/* Questionmark brick */
+.brick:nth-child(2) {
+  left: 670px;
+}
+.brick:nth-child(4) {
+  left: 740px;
+}
+.brick:nth-child(5) {
+  left: 810px;
+}
+/* bush position */
+.bush {
+  position: absolute;
+  top: -70px;
+}
+.bush:nth-child(1) {
+  left: 150px;
+}
+.bush:nth-child(2) {
+  left: 900px;
+}
+.bush:nth-child(3) {
+  left: 1500px;
+}
+
+.mario {
+  position: absolute;
+  width: 71px;
+  height: 72px;
+  top: -66px;
+  left: 670px;
+}
+
+.board {
+  position: absolute;
+  width: 350px;
+  height: 230px;
+  top: -300px;
+  left: 1400px;
+}
+.boardStick {
+  position: absolute;
+  width: 40px;
+  height: 72px;
+  top: -70px;
+  left: 1560px;
+}
+
+/* Calling the animation for wind */
+@-webkit-keyframes wind {
+  from {
+    left: -300px;
+  }
+  to {
+    left: 100%;
+  }
+}
+@keyframes wind {
+  from {
+    left: -300px;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/* for mario */
+.mario.jump {
+  animation-name: jump;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.87, -0.41, 0.19, 1.44);
+}
+
+/* The jump animation */
+@keyframes jump {
+  0% {
+    top: -66px;
+  }
+  50% {
+    top: -166px;
+  }
+  100% {
+    top: -66px;
+  }
+}
+
+#coinAnimation {
+  position: absolute;
+  left: 690px;
+  visibility: hidden;
+}
+
+button {
+  font-family: "Press Start 2P", cursive;
+  background-color: #60410f;
+  border-radius: 6px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 3px;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover,
+button:focus {
+  background-color: #f0da82;
+  color: black;
+}
